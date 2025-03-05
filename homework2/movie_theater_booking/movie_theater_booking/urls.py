@@ -20,15 +20,17 @@ from rest_framework.routers import DefaultRouter
 from bookings.views import MovieViewSet, SeatViewSet, BookingViewSet, home
 from django.conf import settings
 from django.conf.urls.static import static
+from bookings import views
 
 router = DefaultRouter()
 
-router.register(r'movies', MovieViewSet)
-router.register(r'seats', SeatViewSet)
-router.register(r'bookings', BookingViewSet)
+router.register(r'api/movies', MovieViewSet)
+router.register(r'api/seats', SeatViewSet)
+router.register(r'api/bookings', BookingViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='homepage'),
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
+     path('', include('bookings.urls')),
 ]

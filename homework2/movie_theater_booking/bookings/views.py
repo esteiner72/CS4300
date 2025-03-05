@@ -8,7 +8,6 @@ from django.views.decorators.csrf import csrf_exempt
 class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
-    http_method_names = ['get']
 
 
 class SeatViewSet(viewsets.ModelViewSet):
@@ -25,7 +24,7 @@ def home(request):
 @csrf_exempt
 def movie_list(request):
     movies = Movie.objects.all()
-    return render(request, 'movie_list.html', {'movies': movies})
+    return render(request, 'bookings/movie_list.html', {'movies': movies})
 
 def seat_list(request):
     seats = Seat.objects.all()

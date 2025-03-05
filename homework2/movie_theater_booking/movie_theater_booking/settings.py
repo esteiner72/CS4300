@@ -23,17 +23,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*e%s7_y=n&i6v^hx^ye(4f(*e^su#f&y&&45(%1nz%ed0(vild'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-FORCE_SCRIPT_NAME = '/proxy/8000'
+FORCE_SCRIPT_NAME = '/proxy/3000'
+
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'editor-esteiner-5.devedu.io',
     'editor-esteiner-5.devedu.io/proxy',
-    'editor-esteiner-5.devedu.io/proxy/8000',
+    'editor-esteiner-5.devedu.io/proxy/3000',
     'http://editor-esteiner-5.devedu.io/',
     'https://app-esteiner-5.devedu.io/',
+    'app-esteiner-5.devedu.io'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
