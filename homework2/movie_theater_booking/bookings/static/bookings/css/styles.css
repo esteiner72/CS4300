@@ -4,4 +4,5 @@
 
 :root {
     --bs-body-bg: var(--bs-gray-100);
+    font-size: 50px;
 }

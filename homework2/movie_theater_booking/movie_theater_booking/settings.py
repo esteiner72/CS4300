@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*e%s7_y=n&i6v^hx^ye(4f(*e^su#f&y&&45(%1nz%ed0(vild'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 FORCE_SCRIPT_NAME = '/proxy/8000'
 
@@ -33,12 +33,16 @@ ALLOWED_HOSTS = [
     'editor-esteiner-5.devedu.io/proxy',
     'editor-esteiner-5.devedu.io/proxy/8000',
     'http://editor-esteiner-5.devedu.io/',
+    'https://app-esteiner-5.devedu.io/',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://editor-esteiner-5.devedu.io',
     'https://editor-esteiner-5.devedu.io/proxy',
     'https://editor-esteiner-5.devedu.io/proxy/8000',
+    'https://app-esteiner-5.devedu.io',
+    'https://app-esteiner-5.devedu.io/proxy',
+    'https://app-esteiner-5.devedu.io/proxy/8000',
 ]
 
 # Application definition
@@ -143,7 +147,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'bookings/static',
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'

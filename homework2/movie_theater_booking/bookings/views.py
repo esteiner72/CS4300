@@ -25,7 +25,7 @@ def home(request):
 @csrf_exempt
 def movie_list(request):
     movies = Movie.objects.all()
-    return render(request, 'bookings/movie_list.html', {'movies': movies})
+    return render(request, 'movie_list.html', {'movies': movies})
 
 def seat_list(request):
     seats = Seat.objects.all()
