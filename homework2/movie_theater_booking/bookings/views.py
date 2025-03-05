@@ -16,3 +16,17 @@ class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
 
+def home(request):
+    return render(request, 'bookings/home.html')
+
+def movie_list(request):
+    movies = Movie.objects.all()
+    return render(request, 'bookings/movie_list.html', {'movies': movies})
+
+def seat_list(request):
+    seats = Seat.objects.all()
+    return render(request, 'bookings/seat_booking.html', {'seats': seats})
+
+def booking_history(request):
+    bookings = Booking.objects.all()
+    return render(request, 'bookings/booking_history.html', {'bookings': bookings})

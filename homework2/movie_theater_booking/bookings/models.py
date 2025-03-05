@@ -6,7 +6,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
     release_date = models.DateTimeField()
-    duration = models.DecimalField(max_length=5)
+    duration = models.DecimalField(max_digits=5, decimal_places=2)
 
 class Seat(models.Model):
     seat_num = models.IntegerField()
