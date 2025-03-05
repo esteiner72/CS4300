@@ -2,6 +2,8 @@
 {% block title %} Movie List {% endblock %}
 {% block content %}
 <h2> Available Movies </h2>
+<a href="{% url 'seat_booking' %}" class="btn btn-primary">Book Seat for this Movie</a>
+<a href="{% url 'booking_history' %}" class="btn btn-primary">View Booking History</a>
 <ul class ="list-group">
     {% for movie in movies %}
         <li class ="list-group-item ">

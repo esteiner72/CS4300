@@ -23,10 +23,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*e%s7_y=n&i6v^hx^ye(4f(*e^su#f&y&&45(%1nz%ed0(vild'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['editor-esteiner-5.devedu.io']
+FORCE_SCRIPT_NAME = '/proxy/8000'
 
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'editor-esteiner-5.devedu.io',
+    'editor-esteiner-5.devedu.io/proxy',
+    'editor-esteiner-5.devedu.io/proxy/8000',
+    'http://editor-esteiner-5.devedu.io/',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://editor-esteiner-5.devedu.io',
+    'https://editor-esteiner-5.devedu.io/proxy',
+    'https://editor-esteiner-5.devedu.io/proxy/8000',
+]
 
 # Application definition
 
@@ -38,8 +51,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_simplejwt',
     'bookings',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,6 +70,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'movie_theater_booking.urls'
 
@@ -119,7 +141,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
